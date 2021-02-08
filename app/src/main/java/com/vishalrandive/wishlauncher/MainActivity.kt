@@ -1,7 +1,9 @@
 package com.vishalrandive.wishlauncher
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -61,7 +63,18 @@ class MainActivity : AppCompatActivity() {
             it?.let {
                 appListAdapter.clear()
                 appListAdapter.changeData(AppSearchManager.getListOfInstalledApp(this))
-                appListAdapter.notifyDataSetChanged()
+            }
+        })
+
+        mBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                Log.e("MainActivity QTC", "wish --> : " + query)
+                appListAdapter.filter.filter(query)
+                return true
             }
         })
     }
