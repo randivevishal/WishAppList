@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataModel"
+            type="com.vishalrandive.wishlib.AppInfoModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAppIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:appIconDrawable="@{dataModel.appIcon}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="VectorDrawableCompat"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAppInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@{dataModel.appName}"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/ivAppIcon"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:text="Vishal Randive" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPackageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@{dataModel.packageName}"
+            app:layout_constraintLeft_toRightOf="@id/ivAppIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvAppInfo"
+            tools:text="Vishal Randive" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLauncherActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:padding="3dp"
+            android:text="@{dataModel.launcherActivity}"
+            app:layout_constraintLeft_toRightOf="@id/ivAppIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvPackageName"
+            tools:text="Vishal Randive" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAppVersionName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@{dataModel.versionName}"
+            app:layout_constraintLeft_toRightOf="@id/ivAppIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvLauncherActivity"
+            tools:text="Vishal Randive" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAppVersionCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@{String.valueOf(dataModel.versionCode)}"
+            app:layout_constraintLeft_toRightOf="@id/ivAppIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvAppVersionName"
+            tools:text="Vishal Randive,  hello world whats up" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

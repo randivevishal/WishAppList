@@ -1,0 +1,4 @@
+include ':wishaidl'
+include ':wishlib'
+include ':app'
+rootProject.name = "WishLauncher"
